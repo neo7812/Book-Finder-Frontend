@@ -44,12 +44,16 @@ export default async function BookPage({
         {/* COVER */}
         <div className="flex justify-center">
           {book.thumbnail ? (
-            <Image
-              src={book.thumbnail}
+            <img
+              src={book.thumbnail.replace("http://", "https://")}
               alt={book.title}
               width={320}
               height={480}
-              className="rounded-xl shadow-2xl object-cover"
+              className="rounded-xl shadow-2xl object-cover w-full max-w-xs mx-auto"
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = "none";
+                // Show fallback div
+              }}
             />
           ) : (
             <div className="bg-gray-200 border-2 border-dashed rounded-xl w-80 h-96 flex items-center justify-center">
