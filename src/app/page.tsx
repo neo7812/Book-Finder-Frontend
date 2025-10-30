@@ -54,11 +54,30 @@ export default async function Home({
   return (
     <>
       {/* HERO */}
-      <section className="hero min-h-[60vh] bg-gradient-to-br from-primary via-secondary to-accent">
-        <div className="hero-content text-center px-4">
+      <section className="hero min-h-[60vh] bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-purple-500 rounded-full mix-blend-normal filter blur-3xl opacity-20 animate-pulse"></div>
+          <div className="absolute top-40 right-10 w-96 h-96 bg-pink-500 rounded-full mix-blend-normal filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute -bottom-8 left-1/3 w-96 h-96 bg-blue-500 rounded-full mix-blend-normal filter blur-3xl opacity-20 animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-cyan-500 rounded-full mix-blend-normal filter blur-3xl opacity-15 animate-pulse" style={{animationDelay: '1.5s'}}></div>
+          
+          {/* Noise texture overlay */}
+          <div className="absolute inset-0 opacity-10 mix-blend-overlay"
+               style={{backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' /%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\' /%3E%3C/svg%3E")'}}></div>
+        </div>
+        
+        <div className="hero-content text-center px-4 relative z-10">
           <div className="max-w-4xl w-full">
             {/* SUPER LARGE TITLE */}
-            <p className="text-3xl sm:text-3xl md:text-3xl font-black text-amber-50 mb-10 drop-shadow-2xl tracking-tighter leading-none">
+            <p className="text-4xl sm:text-5xl md:text-6xl font-black text-white mb-10 tracking-tighter leading-none"
+               style={{
+                 textShadow: '0 0 40px rgba(168, 85, 247, 0.4), 0 0 80px rgba(168, 85, 247, 0.2)',
+                 background: 'linear-gradient(to right, #fff, #e9d5ff, #fff)',
+                 WebkitBackgroundClip: 'text',
+                 WebkitTextFillColor: 'transparent',
+                 backgroundClip: 'text'
+               }}>
               BOOK FINDER
             </p>
             
